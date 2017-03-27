@@ -14,7 +14,10 @@ BuildRequires:  flex
 BuildRequires:  gcc-c++ 
 BuildRequires:  cmake 
 BuildRequires:  zlib-devel
-Requires:		apache-arrow >= 0.2.0
+Requires:       apache-arrow >= 0.2.0
+Requires:       zlib
+Requires:       boost-regex
+
 AutoReqProv: 	no
 
 %description
