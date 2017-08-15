@@ -12,12 +12,10 @@ BuildRequires:  boost-regex
 BuildRequires:  bison 
 BuildRequires:  flex 
 BuildRequires:  gcc-c++ 
-BuildRequires:  cmake 
+BuildRequires:  cmake >= 3.2.0
 BuildRequires:  zlib-devel
-Requires:       apache-arrow >= 0.2.0
 Requires:       zlib
 Requires:       boost-regex
-
 AutoReqProv: 	no
 
 %description
@@ -42,9 +40,6 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT/usr/lib $RPM_BUILD_ROOT/usr/lib64
-rm -rf $RPM_BUILD_ROOT/home
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -63,5 +58,6 @@ ldconfig
 %defattr(-,root,root,-)
 %{_includedir}
 %{_libdir}/libparquet.a
+%{_libdir}/pkgconfig
 
 %changelog
