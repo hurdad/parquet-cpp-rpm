@@ -16,8 +16,6 @@ BuildRequires:  cmake >= 3.2.0
 BuildRequires:  zlib-devel
 Requires:       zlib
 Requires:       boost-regex
-Requires:		apache-arrow-cpp >= 0.7.0
-AutoReqProv: 	no
 
 %description
 A C++ library to read and write the Apache Parquet columnar data format.
