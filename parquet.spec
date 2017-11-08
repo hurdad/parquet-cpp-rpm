@@ -52,6 +52,7 @@ ldconfig
 %defattr(-,root,root,-)
 %doc CHANGELOG LICENSE.txt NOTICE.txt README.md
 %{_libdir}/libparquet.so*
+%{_datarootdir}/parquet-cpp
 
 %files devel
 %defattr(-,root,root,-)
