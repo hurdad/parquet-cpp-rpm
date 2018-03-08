@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 Name:           apache-parquet-cpp
 Version:    	%{VERSION}
 Release:        1%{?dist}
@@ -16,6 +17,7 @@ BuildRequires:  cmake >= 3.2.0
 BuildRequires:  zlib-devel
 Requires:       zlib
 Requires:       boost-regex
+Requires:	apache-arrow-cpp >= 0.8.0
 
 %description
 A C++ library to read and write the Apache Parquet columnar data format.
@@ -32,8 +34,10 @@ Development files for %{name}.
 %setup -n parquet-cpp-%{name}-%{version}
 
 %build
+export PARQUET_TEST_DATA=`pwd`/data
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
 make %{?_smp_mflags}
+make unittest
 
 %install
 rm -rf $RPM_BUILD_ROOT
