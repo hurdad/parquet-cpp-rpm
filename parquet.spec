@@ -35,11 +35,11 @@ Development files for %{name}.
 %setup -n parquet-cpp-%{name}-%{version}
 
 %build
-export PARQUET_TEST_DATA=`pwd`/data
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
 make %{?_smp_mflags}
 
 %check
+export PARQUET_TEST_DATA=`pwd`/data
 make unittest
 
 %install
