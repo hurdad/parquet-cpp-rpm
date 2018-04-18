@@ -15,6 +15,7 @@ BuildRequires:  flex
 BuildRequires:  gcc-c++ 
 BuildRequires:  cmake >= 3.2.0
 BuildRequires:  zlib-devel
+BuildRequires:	apache-arrow-cpp-devel >= 0.8.0
 Requires:       zlib
 Requires:       boost-regex
 Requires:	apache-arrow-cpp >= 0.8.0
@@ -37,6 +38,8 @@ Development files for %{name}.
 export PARQUET_TEST_DATA=`pwd`/data
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
 make %{?_smp_mflags}
+
+%check
 make unittest
 
 %install
